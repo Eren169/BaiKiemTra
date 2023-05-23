@@ -1,0 +1,43 @@
+package Baitap1;
+
+public class PhongThucHanh extends PhongHoc {
+     private String ThongTinChuyenNganh;
+     private int SucChua;
+     private boolean BonRuaTay;
+     private final static String label = "L";
+     public PhongThucHanh(String MaPhong, int DayNha, double DienTich, int SoBongDen, String ThongTinChuyenNganh, int SucChua, boolean BonRuaTay){
+    	 super(label+MaPhong, DayNha, DienTich, SoBongDen);
+    	 this.ThongTinChuyenNganh = ThongTinChuyenNganh;
+    	 this.SucChua = SucChua;
+    	 this.BonRuaTay = BonRuaTay;
+     }
+     @Override
+     public boolean isQualified() {
+    	 return this.BonRuaTay && super.isQualified();
+     }
+     public void setThongTinChuyenNganh(String ThongTinChuyenNganh) {
+    	 this.ThongTinChuyenNganh = ThongTinChuyenNganh;
+     }
+     public void setBonRuaTay(boolean BonRuaTay) {
+    	 this.BonRuaTay = BonRuaTay;
+     }
+     public void setSucChua(int SucChua) {
+    	 this.SucChua = SucChua;
+     }
+     public String getThongTinChuyenNganh() {
+    	 return ThongTinChuyenNganh;
+     }
+     public int getSucCua() {
+    	 return SucChua;
+     }
+     public boolean getBonRuaTay() {
+    	 return BonRuaTay;
+     }
+     public static PhongThucHanh Xuat(String MaPhong) {
+    	 PhongHoc phonghoc = PhongHoc.Xuat(MaPhong);
+    	 String ThongTinChuyenNganh = Common.getString("Nhap thong tin chuyen nganh:");
+    	 int SucChua = Common.getInt("Nhap suc chua");
+    	 boolean BonRuaTay = Common.getBoolean("Nhap Bon rua tay:");
+    	 return new PhongThucHanh(MaPhong, phonghoc.getDayNha(), phonghoc.getDienTich(), phonghoc.getSoBongDen(), ThongTinChuyenNganh,SucChua, BonRuaTay );
+     }
+}
