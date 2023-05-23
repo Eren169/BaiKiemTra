@@ -1,0 +1,57 @@
+package Baitap1;
+
+public class PhongHoc {
+     private String MaPhong;
+     private int DayNha;
+     private double DienTich;
+     private int SoBongDen;
+     
+     public PhongHoc(String MaPhong, int DayNha, double DienTich, int SoBongDen) {
+    	 this.MaPhong = MaPhong;
+    	 this.DayNha = DayNha;
+    	 this.DienTich = DienTich;
+    	 this.SoBongDen = SoBongDen;
+     }
+     
+     public String getMaPhong() {
+    	 return MaPhong;
+     }
+     public void setMaPhong(String MaPhong) {
+    	 this.MaPhong = MaPhong;
+     }
+     
+     public int getDayNha() {
+		return DayNha;
+     }
+     public void setDayNha(int DayNha) {
+    	 this.DayNha = DayNha;
+     }
+     
+     public double getDienTich() {
+		return DienTich;
+     }
+     public void setDienTich(double DienTich) {
+    	 this.DienTich = DienTich;
+     }
+     
+     public int getSoBongDen() {
+		return SoBongDen;
+     }
+     public void SoBongDen(int SoBongDen) {
+    	 this.SoBongDen = SoBongDen;
+     }
+     @Override
+     public String toString() {
+    	 return String.format("%20 %10 %15 %10", MaPhong, DayNha, DienTich, SoBongDen);
+     }
+     public boolean isQualified() {
+    	 return(this.DienTich / this.DayNha) >=10;
+     }
+     public static PhongHoc Xuat(String MaPhong) {
+    	 int DayNha = Common.getInt("Nhap Day Nha:");
+    	 double DienTich = Common.getDouble("Nhap Dien Tich:");
+    	 int SoBongDen = Common.getInt("Nhap So Bong Den:");
+    	 return new PhongHoc(MaPhong, DayNha, DienTich, SoBongDen);
+     }
+
+}
